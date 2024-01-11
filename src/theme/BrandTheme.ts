@@ -3,9 +3,7 @@ import { extendTheme } from "@chakra-ui/react";
 export const brandTheme = extendTheme({
     fonts: {
         heading: "RecifeDisplay",
-        body: "Inter",
-        button: 'Inter',
-        mono: "Inter",
+        body: `'Inter', sans-serif`,
     },
     colors: {
         primary: {

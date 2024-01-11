@@ -1,7 +1,7 @@
 import { Box, Button, Flex, HStack, VisuallyHidden, Link as ChakraLink, Image, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import Logo from '../images/logo.png'
+import Logo from '../images/graphics/logo.svg'
 import { HamburgerMenu, SidebarMenu } from './layout/HamburgerMenu'
 import { Footer } from './layout/Footer'
 
@@ -10,7 +10,7 @@ export const Navbar = () => {
     const { isOpen, onToggle } = useDisclosure()
     return (
         <Box bg={'#FFFCF8'}>
-            <Box as="header" bg={'#FFFCF8'} position="sticky" top="0" width="full" zIndex="999">
+            <Box as="header" bg={'#FFFCF8'} top="0" width="full" zIndex="999">
                 {/* <AnnouncementBar /> */}
                 <Box maxW="7xl" mx="auto" py={{ md: "8", base: "4" }} px={{ base: '6', md: '8' }}>
                     <Flex as="nav" justify="space-between">
@@ -40,3 +40,6 @@ export const Navbar = () => {
         </Box>
     )
 }
+
+// KORMAN CAPITAL INVESTMENT ADVISORS LLP
+

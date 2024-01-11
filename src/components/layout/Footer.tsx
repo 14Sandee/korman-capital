@@ -1,6 +1,8 @@
-import { Box, Heading, Image, Link as ChakraLink, Stack, Text, TextProps, useColorModeValue, Button, ButtonProps, HStack } from '@chakra-ui/react'
+import {
+    Box, Heading, Image, Link as ChakraLink, Stack, Text, TextProps, useColorModeValue, Button, ButtonProps, HStack, chakra, HTMLChakraProps, Input,
+} from '@chakra-ui/react'
 import React from 'react'
-import Logo from '../../images/logo.png'
+import Logo from '../../images/graphics/brown-logo.svg'
 import { Link } from 'react-router-dom'
 import { IoCallOutline, IoDocumentTextOutline, IoLocationOutline, IoMailOutline } from "react-icons/io5";
 
@@ -18,9 +20,9 @@ export const Footer = () => {
                             </Box>
                         </Stack>
                         <QuickLinks />
-                        <Stack direction={{ base: 'column', md: 'row' }} spacing={{ base: '10', md: '20' }}>
+                        <Stack spacing={{ base: '10', md: '10' }}>
                             <ContactLinks />
-                            {/* <SubscribeForm width={{ base: 'full', md: 'sm' }} /> */}
+                            <SubscribeForm width={{ base: 'full', md: 'sm' }} />
                         </Stack>
                     </Stack>
                     <Stack
@@ -98,3 +100,36 @@ export const ContactLinks = () => (
         </Stack>
     </Stack >
 )
+
+
+
+export const SubscribeForm = (props: HTMLChakraProps<'form'>) => {
+    return (
+        <chakra.form {...props} onSubmit={(e) => e.preventDefault()}>
+            <Stack spacing="4">
+                <Text color={'white'}>Get notified when we add newsletter or we have exciting news for you.</Text>
+                <Stack spacing="4" direction={{ base: 'column', md: 'row' }}>
+                    <Input
+                        bg={useColorModeValue('white', 'inherit')}
+                        placeholder="Enter your email"
+                        type="email"
+                        required
+                        focusBorderColor={useColorModeValue('secondary.500', 'secondary.300')}
+                        _placeholder={{
+                            opacity: 1,
+                            color: useColorModeValue('gray.500', 'whiteAlpha.700'),
+                        }}
+                    />
+                    <Button
+                        type="submit"
+                        colorScheme="secondary"
+                        flexShrink={0}
+                        width={{ base: 'full', md: 'auto' }}
+                    >
+                        Subscribe
+                    </Button>
+                </Stack>
+            </Stack>
+        </chakra.form>
+    )
+}
