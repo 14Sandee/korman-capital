@@ -10,7 +10,7 @@ export const Navbar = () => {
     const { isOpen, onToggle } = useDisclosure()
     return (
         <Box bg={'#FFFCF8'}>
-            <Box as="header" position="sticky" top="0" width="full" zIndex="999">
+            <Box as="header" bg={'#FFFCF8'} position="sticky" top="0" width="full" zIndex="999">
                 {/* <AnnouncementBar /> */}
                 <Box maxW="7xl" mx="auto" py={{ md: "8", base: "4" }} px={{ base: '6', md: '8' }}>
                     <Flex as="nav" justify="space-between">
@@ -32,7 +32,7 @@ export const Navbar = () => {
                             </HStack>
                         </Flex>
                     </Flex>
-                    <SidebarMenu active={isOpen} />
+                    <SidebarMenu active={isOpen} setActive={onToggle} />
                 </Box>
             </Box>
             <Outlet />

@@ -2,7 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 
 export const brandTheme = extendTheme({
     fonts: {
-        heading: "Inter",
+        heading: "RecifeDisplay",
         body: "Inter",
         button: 'Inter',
         mono: "Inter",

@@ -13,18 +13,18 @@ export const HamburgerMenu = ({ active, setActive }: { active: boolean, setActiv
     )
 }
 
-export const SidebarMenu = ({ active }: { active: boolean }) => {
+export const SidebarMenu = ({ active, setActive }: { active: boolean, setActive: (active: boolean) => void }) => {
     return (
         <Slide direction='right' in={active} style={{ zIndex: 10 }}>
             <HStack alignItems={'center'} justifyContent={'flex-end'}  >
                 <Box height={'100vh'} p={8} bg={'secondary.500'} w={'xl'}>
                     <Stack spacing={16} justifyContent={'center'} h={'full'}>
                         <Stack px={{ base: 2, md: 12 }} alignItems={{ base: 'center', md: 'start' }} spacing={8}>
-                            <Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500}>About Us</Heading>
-                            <Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500}>Philosophy</Heading>
-                            <Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500}>Insights</Heading>
-                            <Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500}>Contact Us</Heading>
-                            <Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500}>Disclosure</Heading>
+                            <Link to={'about'}><Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500} onClick={() => setActive(!active)}>About Us</Heading></Link>
+                            <Link to={'philosophy'}><Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500} onClick={() => setActive(!active)}>Philosophy</Heading></Link>
+                            <Link to={'about'}><Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500} onClick={() => setActive(!active)}>Insights</Heading></Link>
+                            <Link to={'contact'}><Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500} onClick={() => setActive(!active)}>Contact Us</Heading></Link>
+                            <Link to={'disclosure'}><Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500} onClick={() => setActive(!active)}>Disclosure</Heading></Link>
                         </Stack>
                         <Stack px={{ base: 2, md: 12 }} alignItems={{ base: 'center', md: 'start' }}>
                             <Button colorScheme='primary' size="lg" textTransform={'uppercase'} rounded="md"

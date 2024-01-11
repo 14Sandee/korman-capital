@@ -45,7 +45,7 @@ export const Copyright = (props: TextProps) => (
 export const QuickLinks = () => {
     return (
         <Stack spacing={{ base: '4', md: '8' }}>
-            <Heading as="h3" color={useColorModeValue('gray.50', 'white')} fontSize="xl" fontWeight="medium" letterSpacing="wider">
+            <Heading as="h3" color={useColorModeValue('gray.50', 'white')} fontSize="2xl" fontWeight="medium" letterSpacing="wider">
                 Quick Links
             </Heading>
             <Stack spacing={4}>
@@ -73,7 +73,7 @@ export const LinkItem = (props: ButtonProps) => {
 
 export const ContactLinks = () => (
     <Stack spacing={{ base: '4', md: '8' }}>
-        <Heading as="h3" color={useColorModeValue('gray.50', 'white')} fontSize="xl" fontWeight="medium" letterSpacing="wider">
+        <Heading as="h3" color={useColorModeValue('gray.50', 'white')} fontSize="2xl" fontWeight="medium" letterSpacing="wider">
             Contact Us
         </Heading>
         <Stack spacing={6}>
@@ -93,7 +93,7 @@ export const ContactLinks = () => (
                 <Stack justifyContent={'center'} alignItems={'center'} boxSize={8} rounded={'full'} borderWidth={'1px'} borderColor='white'>
                     <IoLocationOutline color={'white'} />
                 </Stack>
-                <Text color='white'>Korman Capital Investment Advisors LLP,<br /> Wework Prestige Atlanta,<br /> 80 Feet Main Road,<br /> Koramangala 1A Block,<br /> Bangalore, Karnataka 560034</Text>
+                <Text color='white'>Korman Capital Investment Advisors LLP,<br /> Wework Prestige Atlanta, 80 Feet Main Road,<br /> Koramangala 1A Block,<br /> Bangalore, Karnataka 560034</Text>
             </HStack>
         </Stack>
     </Stack >
