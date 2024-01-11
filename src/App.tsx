@@ -7,11 +7,13 @@ import { Philosophy } from './pages/Philosophy'
 import { QuarterlyNewsletter } from './pages/QuarterlyNewsletter'
 import { Blogs } from './pages/Blogs'
 import { Disclosure } from './pages/Disclosure'
+import { ScrollToTop } from './utils/ScrollToTop'
 
 function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
