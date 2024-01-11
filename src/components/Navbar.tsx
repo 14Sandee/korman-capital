@@ -24,7 +24,7 @@ export const Navbar = () => {
                         </HStack>
                         <Flex align="center">
                             <HStack spacing="8" display={{ base: 'flex', md: 'flex' }}>
-                                <Button colorScheme='secondary' size="md" textTransform={'uppercase'} rounded="md"
+                                <Button colorScheme='secondary' display={{ base: 'none', md: 'flex' }} size="md" textTransform={'uppercase'} rounded="md"
                                     as={ChakraLink} href="" isExternal>
                                     Invest with us
                                 </Button>
