@@ -183,7 +183,7 @@ export const QuickLinks = () => {
             <Stack spacing={4}>
                 <Link to={'/about'}> <LinkItem>About Us</LinkItem></Link>
                 <Link to={'/philosophy'}> <LinkItem>Philosophy</LinkItem></Link>
-                <Link to={'/risk-management'}> <LinkItem>Risk Management</LinkItem></Link>
+                <Link to={'/quarterly-newsletter'}> <LinkItem>Quarterly Newsletter</LinkItem></Link>
                 <Link to={'/blogs'}> <LinkItem>Blogs</LinkItem></Link>
                 <Link to={'/contact'}> <LinkItem>Contact Us</LinkItem></Link>
                 <Link to={'/disclosure'}> <LinkItem>Disclosure</LinkItem></Link>
