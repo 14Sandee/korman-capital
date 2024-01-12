@@ -19,7 +19,7 @@ export const Blogs = () => {
             </BreadCrumb>
             <Box as="section" pb="20" overflow="hidden">
                 <Box maxW={{ base: 'xl', md: '7xl' }} minH={200} mx="auto" px={{ base: '6', md: '8' }}>
-                    <Heading as='em' fontSize={'3xl'} color={'secondary.500'}>Blogs</Heading>
+                    <Heading fontSize={'3xl'} color={'secondary.500'} fontFamily={'RecifeDisplay-Italic'} fontWeight={'semibold'}>Blogs</Heading>
                     <Text mt={20} fontSize={{ base: 16, md: 18 }} textAlign={'center'}>Coming shortly. Subscribe to mailing list</Text>
                 </Box>
             </Box>

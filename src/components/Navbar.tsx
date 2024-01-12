@@ -41,5 +41,3 @@ export const Navbar = () => {
     )
 }
 
-// KORMAN CAPITAL INVESTMENT ADVISORS LLP
-

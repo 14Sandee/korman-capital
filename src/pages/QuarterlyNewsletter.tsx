@@ -20,7 +20,7 @@ export const QuarterlyNewsletter = () => {
             <Box as="section" pb="20" overflow="hidden">
                 <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }}>
                     <Stack spacing={4} >
-                        <Heading as='em' fontSize={'3xl'} color={'secondary.500'}>Quarterly Newsletter</Heading>
+                        <Heading fontSize={'3xl'} color={'secondary.500'} fontFamily={'RecifeDisplay-Italic'} fontWeight={'semibold'}>Quarterly Newsletter</Heading>
                         <Stack spacing={0} mt={8} rounded={20} overflow={'hidden'} borderWidth={3} borderColor={'secondary.500'}>
                             <HStack px={{ base: 4, md: 14 }} py={{ base: 4, md: 8 }} justifyContent={'space-between'} bg={'secondary.500'}>
                                 <Text fontSize={{ base: 16, md: 18 }} color={'white'} textTransform={'uppercase'}>Quarter</Text>

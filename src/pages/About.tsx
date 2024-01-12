@@ -21,8 +21,8 @@ export const About = () => {
                             <HStack alignItems={{ base: 'start', md: 'center' }} spacing={12} flexDirection={{ base: 'column', md: 'row' }}>
                                 <Image src={Gaurav} alt='Gaurav Somani' />
                                 <Stack spacing={8}>
-                                    <Heading as='em' fontSize={'3xl'} color={'primary.500'}>Gaurav Somani</Heading>
-                                    <Text fontFamily={'RecifeDisplay'} color={'secondary.500'} fontWeight={600}>MBA, FMS Delhi; BTech, IIIT Hyderabad; CFA L2; FRM<br />
+                                    <Heading fontSize={'3xl'} color={'primary.500'} fontFamily={'RecifeDisplay-Italic'} fontWeight={'semibold'}>Gaurav Somani</Heading>
+                                    <Text fontFamily={'RecifeDisplay'} color={'secondary.500'} fontWeight={'semibold'}>MBA, FMS Delhi; BTech, IIIT Hyderabad; CFA L2; FRM<br />
                                         Past Experience: Flipkart, ICICI Bank, Barclays Bank</Text>
                                     <HStack spacing={4}>
                                         <Stack as={ChakraLink} target='_blank' href='https://www.linkedin.com/in/gauravkumarsomani/' boxSize={12} justifyContent={'center'} alignItems={'center'} rounded={5} bg={'secondary.500'}><FaLinkedinIn color='white' size={32} /></Stack>

@@ -32,7 +32,7 @@ export const Philosophy = () => {
                 <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }}>
                     <Stack spacing={12}>
                         <Stack spacing={8}>
-                            <Heading as='em' fontSize={'3xl'} color={'secondary.500'}>Investing Philosophy</Heading>
+                            <Heading fontSize={'3xl'} color={'secondary.500'} fontFamily={'RecifeDisplay-Italic'} fontWeight={'semibold'}>Investing Philosophy</Heading>
                             <Stack spacing={{ base: 16, md: 28 }}>
                                 <Stack spacing={8}>
                                     <Text fontSize={'xl'} fontWeight={600} textTransform={'uppercase'} color={'primary.400'}>Anchor Tenants</Text>

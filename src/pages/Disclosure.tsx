@@ -20,7 +20,7 @@ export const Disclosure = () => {
             <Box as="section" pb="20" overflow="hidden">
                 <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }}>
                     <Stack spacing={8} >
-                        <Heading as='em' fontSize={'3xl'} color={'secondary.500'}>Disclosure</Heading>
+                        <Heading fontSize={'3xl'} color={'secondary.500'} fontFamily={'RecifeDisplay-Italic'} fontWeight={'semibold'}>Disclosure</Heading>
                         <Box px={4} py={{ base: 6, md: 12 }} bg='secondary.500' rounded={10}>
                             <Stack spacing={{ base: 8, md: 8 }} maxW={'5xl'} mx={'auto'}>
                                 <Text fontSize={{ md: 18, base: 16 }} fontWeight={500} color={'white'}>
