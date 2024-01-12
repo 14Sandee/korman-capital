@@ -1,38 +1,170 @@
-import { Box, Heading, Image, Link as ChakraLink, Stack, Text, TextProps, useColorModeValue, Button, ButtonProps, HStack } from '@chakra-ui/react'
-import React from 'react'
-import Logo from '../../images/logo.png'
-import { Link } from 'react-router-dom'
+import {
+    Box, Heading, Image, Link as ChakraLink, Stack, Text, TextProps, useColorModeValue, Button, ButtonProps, HStack, chakra, HTMLChakraProps, Input, TableContainer, Table, Thead, Tr, Th, Tbody, Td, IconButton, Collapse, useDisclosure,
+} from '@chakra-ui/react'
+import React, { useMemo } from 'react'
+import Logo from '../../images/graphics/brown-logo.svg'
+import { Link, useLocation } from 'react-router-dom'
 import { IoCallOutline, IoDocumentTextOutline, IoLocationOutline, IoMailOutline } from "react-icons/io5";
+import InvestorCharter from '../../assets/investor-charter.pdf'
+import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
+import { TriangleDownIcon } from '@chakra-ui/icons';
 
 export const Footer = () => {
+    const { pathname } = useLocation();
+    console.log(pathname!)
     return (
-        <Box as="footer" role="contentinfo" overflow="hidden" mx="auto" bg="primary.500">
-            <Box maxW="7xl" mx="auto" px={{ base: '4', md: '8' }} py="12">
-                <Stack spacing="10">
-                    <Stack w='full' justifyContent='space-between' direction={{ base: 'column', lg: 'row' }} spacing={{ base: '10', lg: '28' }}>
-                        <Stack>
-                            <Box flex="1">
-                                <Box maxW={{ base: "80px", md: "150px" }}>
-                                    <Image src={Logo} alt="Korman capital" />
+        <Box>
+            {pathname !== '/' ? '' : <Box maxW="7xl" mx="auto" px={{ base: '4', md: '8' }}>
+                <ComplaintDataComp />
+            </Box>}
+
+            <Box as="footer" role="contentinfo" overflow="hidden" mx="auto" bg="primary.500">
+                <Box maxW="7xl" mx="auto" px={{ base: '4', md: '8' }} py="12">
+                    <Stack spacing="10">
+                        <Stack w='full' justifyContent='space-between' direction={{ base: 'column', lg: 'row' }} spacing={{ base: '10', lg: '28' }}>
+                            <Stack>
+                                <Box flex="1">
+                                    <Box maxW={{ base: "80px", md: "150px" }}>
+                                        <Image src={Logo} alt="Korman capital" />
+                                    </Box>
                                 </Box>
-                            </Box>
+                            </Stack>
+                            <QuickLinks />
+                            <Stack spacing={{ base: '10', md: '10' }}>
+                                <ContactLinks />
+                                <SubscribeForm width={{ base: 'full', md: 'sm' }} />
+                            </Stack>
                         </Stack>
-                        <QuickLinks />
-                        <Stack direction={{ base: 'column', md: 'row' }} spacing={{ base: '10', md: '20' }}>
-                            <ContactLinks />
-                            {/* <SubscribeForm width={{ base: 'full', md: 'sm' }} /> */}
+                        <Stack
+                            direction={{ base: 'column-reverse', md: 'row' }}
+                            justifyContent="space-between"
+                            alignItems="center"
+                        >
+                            <Copyright />
                         </Stack>
                     </Stack>
-                    <Stack
-                        direction={{ base: 'column-reverse', md: 'row' }}
-                        justifyContent="space-between"
-                        alignItems="center"
-                    >
-                        <Copyright />
-                    </Stack>
-                </Stack>
+                </Box>
             </Box>
         </Box>
+    )
+}
+
+export const ComplaintDataComp = () => {
+    const { isOpen, onToggle } = useDisclosure()
+    return (
+        <Stack maxW={'6xl'} mx='auto' spacing={0} mt={20} alignItems={'center'}>
+            <HStack px={{ base: 4, md: 8 }} w={'full'} justifyContent={'flex-end'}>
+                <IconButton
+                    as="a"
+                    rel="noopener noreferrer"
+                    bg={'primary.400'}
+                    cursor={'pointer'}
+                    onClick={onToggle}
+                    _hover={{ bg: 'primary.500' }}
+                    color={'white'}
+                    aria-label="Download app"
+                    size="lg"
+                    icon={<TriangleDownIcon />}
+                />
+            </HStack>
+            <Collapse in={isOpen} transition={{ exit: { duration: 0.5 }, enter: { duration: 0.5 } }}>
+                <Stack w='full' spacing={2} bg={'primary.400'} px={{ base: 2, md: 4 }} py={4} rounded={'md'}>
+                    <HStack w={'full'} spacing={2} justifyContent={'space-between'}>
+                        <Text fontSize={{ base: 12, md: 14 }} color={'white'} textTransform={'uppercase'}>
+                            Number of complaints: SmartOdr.in
+                        </Text>
+                        <Text fontSize={{ base: 12, md: 14 }} color={'white'} textTransform={'uppercase'}>
+                            Click here for detailed complaints data
+                        </Text>
+                    </HStack>
+                    <ComplaintsDataTable />
+                </Stack>
+            </Collapse>
+
+        </Stack>
+    )
+}
+
+export interface Options {
+    begining: number,
+    received: number,
+    resolved: number,
+    pending: number,
+    reasons: string
+}
+const data: Options[] = [
+    {
+        begining: 0,
+        received: 0,
+        resolved: 0,
+        pending: 0,
+        reasons: ''
+    }
+]
+export const ComplaintsDataTable = () => {
+    const columns = useMemo<ColumnDef<Options>[]>(() => [
+        {
+            accessorKey: 'begining',
+            header: 'At the beginning of the month',
+            cell: (doc) => doc.getValue() ?? '-'
+        },
+        {
+            accessorKey: 'received',
+            header: 'Received during the month',
+            cell: (doc) => doc.getValue() ?? '-'
+        },
+        {
+            accessorKey: 'resolved',
+            header: 'Resolved during the month',
+            cell: (doc) => doc.getValue() ?? '-'
+        },
+        {
+            accessorKey: 'pending',
+            header: 'Pending at the end of the month',
+            cell: (doc) => doc.getValue() ?? '-'
+        },
+        {
+            accessorKey: 'reasons',
+            header: 'Reasons for pendency',
+            cell: (doc) => doc.getValue() ?? '-'
+        },
+    ], [])
+    const { getHeaderGroups, getRowModel } = useReactTable({
+        data, columns,
+        getCoreRowModel: getCoreRowModel(),
+    })
+
+    return (
+        <Stack rounded={'md'} borderWidth={1} borderColor={'white'} overflow={'hidden'}>
+            <TableContainer>
+                <Table size="sm">
+                    <Thead>
+                        {getHeaderGroups().map((headerGrp) => (
+                            <Tr bgColor='gray.100' key={headerGrp.id}>
+                                {headerGrp.headers.map((header) => (
+                                    <Th borderRightWidth={1} borderColor={'white'} fontSize={12} fontWeight={400} textTransform={'capitalize'} fontFamily={'Inter'} bg={'primary.400'} color={'white'} textAlign={'center'} py={2.5} key={header.id}>
+                                        {flexRender(header.column.columnDef.header, header.getContext())}
+                                    </Th>
+                                ))}
+                            </Tr>
+                        ))}
+                    </Thead>
+                    <Tbody>
+                        {getRowModel().rows.map((row) => (
+                            <Tr key={row.id}>
+                                {row.getVisibleCells().map((cell) => (
+                                    <Td borderBottomWidth={0} borderRightWidth={1} borderColor={'primary.500'} bg='white' textAlign={'center'} py={2.5} key={cell.id}>
+                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                    </Td>
+                                ))}
+                            </Tr>
+                        ))}
+                    </Tbody>
+                </Table>
+            </TableContainer>
+
+        </Stack>
+
     )
 }
 
@@ -57,7 +189,7 @@ export const QuickLinks = () => {
                 <Link to={'/disclosure'}> <LinkItem>Disclosure</LinkItem></Link>
             </Stack>
             <Button variant={'outline'} leftIcon={<IoDocumentTextOutline size={20} />} _hover={{ bg: 'white', color: 'primary.500' }} color={'white'} size="md" fontWeight={400} textTransform={'uppercase'} rounded="md"
-                as={ChakraLink} href="" isExternal>
+                as={ChakraLink} href={InvestorCharter} target="_blank" isExternal>
                 Investor Charter
             </Button>
         </Stack>
@@ -98,3 +230,36 @@ export const ContactLinks = () => (
         </Stack>
     </Stack >
 )
+
+
+
+export const SubscribeForm = (props: HTMLChakraProps<'form'>) => {
+    return (
+        <chakra.form {...props} onSubmit={(e) => e.preventDefault()}>
+            <Stack spacing="4">
+                <Text color={'white'}>Get notified when we add newsletter or we have exciting news for you.</Text>
+                <Stack spacing="4" direction={{ base: 'column', md: 'row' }}>
+                    <Input
+                        bg={useColorModeValue('white', 'inherit')}
+                        placeholder="Enter your email"
+                        type="email"
+                        required
+                        focusBorderColor={useColorModeValue('secondary.500', 'secondary.300')}
+                        _placeholder={{
+                            opacity: 1,
+                            color: useColorModeValue('gray.500', 'whiteAlpha.700'),
+                        }}
+                    />
+                    <Button
+                        type="submit"
+                        colorScheme="secondary"
+                        flexShrink={0}
+                        width={{ base: 'full', md: 'auto' }}
+                    >
+                        Subscribe
+                    </Button>
+                </Stack>
+            </Stack>
+        </chakra.form>
+    )
+}

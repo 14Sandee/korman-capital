@@ -8,6 +8,7 @@ import { QuarterlyNewsletter } from './pages/QuarterlyNewsletter'
 import { Blogs } from './pages/Blogs'
 import { Disclosure } from './pages/Disclosure'
 import { ScrollToTop } from './utils/ScrollToTop'
+import { Contact } from './pages/Contact'
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
           <Route path='quarterly-newsletter' element={<QuarterlyNewsletter />} />
           <Route path='blogs' element={<Blogs />} />
           <Route path='disclosure' element={<Disclosure />} />
-          <Route path='contact' element={<About />} />
+          <Route path='contact' element={<Contact />} />
         </Route>
       </Routes>
     </BrowserRouter>

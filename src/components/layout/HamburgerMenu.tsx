@@ -34,9 +34,9 @@ export const SidebarMenu = ({ active, setActive }: { active: boolean, setActive:
                                         <AccordionIcon ml={4} fontSize={20} color={'white'} />
                                     </AccordionButton>
                                     <AccordionPanel pb={0} px={4}>
-                                        <Stack spacing={4}>
-                                            <Link to={'quarterly-newsletter'}><Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500} onClick={handleClick}>Quarterly Newsletter</Heading></Link>
-                                            <Link to={'blogs'}><Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500} onClick={handleClick}>Blogs</Heading></Link>
+                                        <Stack spacing={4} mt={2}>
+                                            <Link to={'quarterly-newsletter'}><Heading as={'h2'} fontSize={'2xl'} color={'white'} fontWeight={500} onClick={handleClick}>Quarterly Newsletter</Heading></Link>
+                                            <Link to={'blogs'}><Heading as={'h2'} fontSize={'2xl'} color={'white'} fontWeight={500} onClick={handleClick}>Blogs</Heading></Link>
                                         </Stack>
                                     </AccordionPanel>
                                 </AccordionItem>
