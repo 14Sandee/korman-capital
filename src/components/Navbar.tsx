@@ -17,7 +17,7 @@ export const Navbar = () => {
                         <HStack spacing="8">
                             <Box as={Link} to="/" rel="home">
                                 <VisuallyHidden>Korman Capital</VisuallyHidden>
-                                <Image src={Logo} alt="Korman Capital" w={'36'} />
+                                <Image src={Logo} alt="Korman Capital" w={{ md: '36', base: '28' }} />
                             </Box>
                             <HStack display={{ base: 'none', lg: 'flex' }} spacing="8">
                             </HStack>

@@ -22,17 +22,17 @@ export const Footer = () => {
                 <Box maxW="7xl" mx="auto" px={{ base: '4', md: '8' }} py="12">
                     <Stack spacing="10">
                         <Stack w='full' justifyContent='space-between' direction={{ base: 'column', lg: 'row' }} spacing={{ base: '10', lg: '28' }}>
-                            <Stack>
-                                <Box flex="1">
-                                    <Box maxW={{ base: "80px", md: "150px" }}>
-                                        <Image src={Logo} alt="Korman capital" />
-                                    </Box>
-                                </Box>
-                            </Stack>
                             <QuickLinks />
                             <Stack spacing={{ base: '10', md: '10' }}>
                                 <ContactLinks />
-                                <SubscribeForm width={{ base: 'full', md: 'sm' }} />
+                            </Stack>
+                            <Stack>
+                                <Stack spacing={8} flex="1">
+                                    <Box maxW={{ base: "120px", md: "150px" }}>
+                                        <Image src={Logo} alt="Korman capital" />
+                                    </Box>
+                                    <SubscribeForm width={{ base: 'full', md: 'sm' }} />
+                                </Stack>
                             </Stack>
                         </Stack>
                         <Stack
@@ -83,7 +83,6 @@ export const ComplaintDataComp = () => {
                     <ComplaintsDataTable />
                 </Stack>
             </Collapse>
-
         </Stack>
     )
 }
