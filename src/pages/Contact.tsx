@@ -39,10 +39,11 @@ export const Contact = () => {
             <Box as="section" pb="20" overflow="hidden">
                 <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }}>
                     <Stack spacing={8} >
-                        <Heading fontSize={'3xl'} color={'secondary.500'} fontFamily={'RecifeDisplay-Italic'} fontWeight={'semibold'}>Invest with us</Heading>
+                        {/* <Heading fontSize={'3xl'} color={'secondary.500'} fontFamily={'RecifeDisplay-Italic'} fontWeight={'semibold'}>Invest with us</Heading> */}
                         <SimpleGrid columns={[1, 2]} spacing={12} >
                             <chakra.form onSubmit={handleSubmit(handleLogin)}>
                                 <Stack spacing="6">
+                                    <Heading fontSize={'3xl'} color={'secondary.500'} fontFamily={'RecifeDisplay-Italic'} fontWeight={'semibold'}>Invest with us</Heading>
                                     <FormControl id="name" isRequired isDisabled={loading} isInvalid={!!errors?.name}>
                                         <FormLabel htmlFor="name">Name</FormLabel>
                                         <Input {...register("name", { required: "Name is required.", maxLength: { value: 40, message: "Name should be less than 40 characters." }, validate: (name) => isValidName(name) || "Please enter a valid name." })} type="text" name="name" required placeholder="Your name" focusBorderColor='black.100' rounded='md' />
@@ -76,7 +77,8 @@ export const Contact = () => {
                                     </Button>
                                 </Stack>
                             </chakra.form>
-                            <Stack spacing={{ base: '4', md: '8' }} px={{ base: 0, md: 8 }} py={{ base: 4, md: 8 }}>
+                            <Stack spacing={{ base: '4', md: '8' }} px={{ base: 0, md: 8 }}>
+                                <Heading fontSize={'3xl'} color={'secondary.500'} fontFamily={'RecifeDisplay-Italic'} fontWeight={'semibold'}>Contact us</Heading>
                                 <Stack spacing={{ base: '4', md: '8' }}>
                                     <HStack spacing={4}>
                                         <Stack justifyContent={'center'} alignItems={'center'} boxSize={10} rounded={'full'} borderWidth={'1px'} borderColor='primary.500'>

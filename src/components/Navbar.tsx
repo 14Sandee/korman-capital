@@ -1,4 +1,4 @@
-import { Box, Button, Flex, HStack, VisuallyHidden, Link as ChakraLink, Image, useDisclosure } from '@chakra-ui/react'
+import { Box, Button, Flex, HStack, VisuallyHidden, Image, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import Logo from '../images/graphics/logo.svg'
@@ -17,7 +17,7 @@ export const Navbar = () => {
                         <HStack spacing="8">
                             <Box as={Link} to="/" rel="home">
                                 <VisuallyHidden>Korman Capital</VisuallyHidden>
-                                <Image src={Logo} alt="Korman Capital" w={'36'} />
+                                <Image src={Logo} alt="Korman Capital" w={{ md: '36', base: '28' }} />
                             </Box>
                             <HStack display={{ base: 'none', lg: 'flex' }} spacing="8">
                             </HStack>
@@ -25,7 +25,7 @@ export const Navbar = () => {
                         <Flex align="center">
                             <HStack spacing="8" display={{ base: 'flex', md: 'flex' }}>
                                 <Button colorScheme='secondary' display={{ base: 'none', md: 'flex' }} size="md" textTransform={'uppercase'} rounded="md"
-                                    as={ChakraLink} href="" isExternal>
+                                    as={Link} to='contact'>
                                     Invest with us
                                 </Button>
                                 <HamburgerMenu active={isOpen} setActive={onToggle} />

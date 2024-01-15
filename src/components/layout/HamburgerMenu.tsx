@@ -45,8 +45,8 @@ export const SidebarMenu = ({ active, setActive }: { active: boolean, setActive:
                             <Link to={'disclosure'}><Heading as={'h2'} fontSize={'3xl'} color={'white'} fontWeight={500} onClick={() => setActive(!active)}>Disclosure</Heading></Link>
                         </Stack>
                         <Stack px={{ base: 2, md: 12 }} alignItems={{ base: 'start', md: 'start' }}>
-                            <Button colorScheme='primary' size="lg" textTransform={'uppercase'} rounded="md"
-                                as={Link}>
+                            <Button colorScheme='primary' onClick={() => setActive(!active)} size="lg" textTransform={'uppercase'} rounded="md"
+                                as={Link} to='contact'>
                                 Invest with us
                             </Button>
                         </Stack>
