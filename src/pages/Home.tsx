@@ -13,7 +13,7 @@ export const Home = () => {
         >
             <Box as="section" pt={{ lg: "10", base: "5" }} pb="12" overflow="hidden">
                 <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }}>
-                    <Stack spacing={{ base: 10, md: 20 }}>
+                    <Stack spacing={{ base: 6, md: 20 }}>
                         <Stack spacing={0} alignItems={'center'}>
                             <Heading as="h2" size={{ base: 'xl', md: '2xl' }} mt="8" fontWeight={400} color={'primary.500'}>Invest in the
                                 <Text as='span' color={'secondary.500'} fontFamily={'RecifeDisplay-Italic'} fontWeight={'semibold'}> India opportunity</Text>
@@ -35,11 +35,9 @@ export const Home = () => {
                                         {item.clients.map((client) => <Text fontSize={{ md: 18, base: 16 }} fontWeight={500} color={'white'}>{client}</Text>)}
                                     </Stack>
                                 </Stack>)}
-
                             </SimpleGrid>
                         </Stack>
                     </Stack>
-
                 </Box>
             </Box>
         </motion.div>

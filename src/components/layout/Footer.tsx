@@ -52,31 +52,34 @@ export const Footer = () => {
 export const ComplaintDataComp = () => {
     const { isOpen, onToggle } = useDisclosure()
     return (
-        <Stack maxW={'6xl'} mx='auto' spacing={0} mt={20} alignItems={'center'}>
+        <Stack maxW={'6xl'} mx='auto' spacing={0} mt={10} alignItems={'center'}>
             <HStack px={{ base: 4, md: 8 }} w={'full'} justifyContent={'flex-end'}>
                 <IconButton
                     as="a"
+                    marginBottom={-2}
                     rel="noopener noreferrer"
                     bg={'primary.400'}
                     cursor={'pointer'}
                     onClick={onToggle}
-                    _hover={{ bg: 'primary.500' }}
+                    _hover={{}}
                     color={'white'}
                     aria-label="Download app"
                     size="lg"
                     icon={<TriangleDownIcon />}
                 />
             </HStack>
-            <Collapse in={isOpen} transition={{ exit: { duration: 0.5 }, enter: { duration: 0.5 } }}>
-                <Stack w='full' spacing={2} bg={'primary.400'} px={{ base: 2, md: 4 }} py={4} rounded={'md'}>
-                    <HStack w={'full'} spacing={2} justifyContent={'space-between'}>
-                        <Text fontSize={{ base: 12, md: 14 }} color={'white'} textTransform={'uppercase'}>
-                            Number of complaints: SmartOdr.in
-                        </Text>
-                        <Text fontSize={{ base: 12, md: 14 }} color={'white'} textTransform={'uppercase'}>
-                            Click here for detailed complaints data
-                        </Text>
-                    </HStack>
+            <Stack w='full' spacing={2} bg={'primary.400'} px={{ base: 4, md: 8 }} py={4} roundedTop={'md'} roundedBottom={0}>
+                <HStack w={'full'} spacing={2} justifyContent={'space-between'}>
+                    <Text fontSize={{ base: 12, md: 14 }} color={'white'} textTransform={'uppercase'}>
+                        Number of complaints: SmartOdr.in
+                    </Text>
+                    <Text fontSize={{ base: 12, md: 14 }} color={'white'} textTransform={'uppercase'}>
+                        Click here for detailed complaints data
+                    </Text>
+                </HStack>
+            </Stack>
+            <Collapse style={{ width: '100%' }} in={isOpen} transition={{ exit: { duration: 0.5 }, enter: { duration: 0.5 } }}>
+                <Stack w='full' spacing={2} bg={'primary.400'} px={{ base: 2, md: 4 }} py={4}>
                     <ComplaintsDataTable />
                 </Stack>
             </Collapse>
@@ -153,7 +156,7 @@ export const ComplaintsDataTable = () => {
                         {getRowModel().rows.map((row) => (
                             <Tr key={row.id}>
                                 {row.getVisibleCells().map((cell) => (
-                                    <Td borderBottomWidth={0} borderRightWidth={1} borderColor={'primary.500'} bg='white' textAlign={'center'} py={2.5} key={cell.id}>
+                                    <Td borderBottomWidth={0} borderRightWidth={1} borderColor={cell.column.id === 'reasons' ? 'white' : 'primary.500'} bg='white' textAlign={'center'} py={2.5} key={cell.id}>
                                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                     </Td>
                                 ))}
